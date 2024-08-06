@@ -1,4 +1,5 @@
 use crate::backend::filter::Languages;
+use crate::global::CURRENT_LIST_ITEM_STYLE;
 use crate::backend::ChapterResponse;
 use crate::utils::display_dates_since_publication;
 use ratatui::{prelude::*, widgets::*};
@@ -74,7 +75,7 @@ impl Widget for MangasRead {
 impl PreRender for MangasRead {
     fn pre_render(&mut self, context: &tui_widget_list::PreRenderContext) -> u16 {
         if context.is_selected {
-            self.style = Style::default().fg(Color::Yellow);
+            self.style = *CURRENT_LIST_ITEM_STYLE;
         }
         10
     }
